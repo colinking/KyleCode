@@ -64,17 +64,17 @@ public class KyleSeqFinder {
          */
         String searchFor = "RD HWI-EAS";
 //        String fileExt = ".ace";
-        //String folderRoot = "/Users/KyleKing/Desktop/Sequence Files/";
-        String folderRoot = "/home/colin/SequenceFiles/";
-        /*String[] folderNames = new String[]{
+        String folderRoot = "/Users/KyleKing/Desktop/Sequence Files/";
+        //String folderRoot = "/home/colin/SequenceFiles/";
+        String[] folderNames = new String[]{
             "1000009.2.fasta.assemblies",
             "1000009.3.fasta.assemblies",
             "1000009.4.fasta.assemblies",
             "1000010.4.fasta.assemblies",
             "1000010.6.fasta.assemblies",
             "1000010.7.fasta.assemblies",
-            "1000010.8.fasta.assemblies"};*/
-        String[] folderNames = new String[]{"ABC123", "ABC456", "ABC789"};
+            "1000010.8.fasta.assemblies"};
+        //String[] folderNames = new String[]{"ABC123", "ABC456", "ABC789"};
         //for each folder in the above list
         for (String folder : folderNames) {
             folder = folderRoot + folder;
