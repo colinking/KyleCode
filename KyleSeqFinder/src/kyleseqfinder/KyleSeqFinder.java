@@ -40,7 +40,7 @@ public class KyleSeqFinder {
          * Take the line with the sequence, write it
          * after finishing a folder, make new folder
          */
-        for (File file: finder("")) {
+        for (File file: finder("/Users/KyleKing/Desktop/Sequence Files/1000009.2.fasta.assemblies")) {
             System.out.println(file.toString());
         }
     }
