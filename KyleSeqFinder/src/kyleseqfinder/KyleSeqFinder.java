@@ -63,10 +63,17 @@ public class KyleSeqFinder {
          */
         String searchFor = "RD HWI-EAS";
 //        String fileExt = ".ace";
-        String folderRoot = "/Users/KyleKing/Desktop/Sequence Files/";
-        //String folderRoot = "/home/colin/SequenceFiles/";
-        String[] folderNames = new String[]{"1000009.2.fasta.assemblies", "1000009.3.fasta.assemblies", "1000009.4.fasta.assemblies", "1000010.4.fasta.assemblies", "1000010.6.fasta.assemblies", "1000010.7.fasta.assemblies", "1000010.8.fasta.assemblies"};
-        //String[] folderNames = new String[]{"ABC123", "ABC456", "ABC789"};
+        //String folderRoot = "/Users/KyleKing/Desktop/Sequence Files/";
+        String folderRoot = "/home/colin/SequenceFiles/";
+        /*String[] folderNames = new String[]{
+            "1000009.2.fasta.assemblies", 
+            "1000009.3.fasta.assemblies", 
+            "1000009.4.fasta.assemblies", 
+            "1000010.4.fasta.assemblies", 
+            "1000010.6.fasta.assemblies", 
+            "1000010.7.fasta.assemblies", 
+            "1000010.8.fasta.assemblies"};*/
+        String[] folderNames = new String[]{"ABC123", "ABC456", "ABC789"};
         //for each folder in the above list
         for (String folder : folderNames) {
             folder = folderRoot + folder;
@@ -75,21 +82,22 @@ public class KyleSeqFinder {
             new File(folder + ".txt").mkdir();
             for (File file : finder(folder)) {
                 try {
-                    //create a new file, if not already made
-                    File writeToFile = new File(folder + ".txt/" + file.getName() + ".fasta");
+                    int count = 0;
                     //search, and write
                     Scanner scan = new Scanner(file);
                     while (scan.hasNext()) {
                         String returnedText = scan.findInLine(searchFor);
                         String text = scan.nextLine();
-                        if (returnedText != null) {
-                            writeData(writeToFile, returnedText + text, scan.nextLine());
+                        if (returnedText != null) { //it found the sequence it was looking for
+                            writeData(new File(folder + ".txt/" + file.getName() + count + ".fasta"), returnedText + text, scan.nextLine());
+                            count++;
                         }
                     }
                 } catch (IOException ex) {
                     Logger.getLogger(KyleSeqFinder.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+        System.out.println("Finished Folder");
         }
     }
 }
